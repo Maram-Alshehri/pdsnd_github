@@ -1,4 +1,4 @@
-#Import 
+#Import
 import time
 import pandas as pd
 import numpy as np
@@ -18,6 +18,10 @@ def validate_city(city):
     if city in cites:
             return True
     return False
+
+def example():
+    print("example")
+
 
 def validate_month(month):
     """
