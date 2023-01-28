@@ -1,3 +1,4 @@
+#Import 
 import time
 import pandas as pd
 import numpy as np
@@ -8,40 +9,40 @@ CITY_DATA = { 'chicago': 'chicago.csv',
 
 def validate_city(city):
     """
-    This function return true or false value to check 
+    This function return true or false value to check
     if the input city is correct or not
     """
-    # the name of cites avalible 
+    # the name of cites avalible
     cites = ['chicago','new york city','washington']
-    
-    if city in cites:           
+
+    if city in cites:
             return True
     return False
 
 def validate_month(month):
     """
-    This function return true or false value to check 
+    This function return true or false value to check
     if the input month is correct or not
     """
-    
+
     # the  month of the year + string 'all'
     months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october',
               'november'  ,'december','all']
-    
-    if month in months  :           
+
+    if month in months  :
             return True
     return False
 
 
 def validate_day(day):
     """
-    This function return true or false value to check 
+    This function return true or false value to check
     if the input day is correct or not
     """
-    
+
      # the  month of the year + string 'all'
     days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday',  'sunday','all']
-    
+
     if day in days:
             return True
     return False
@@ -58,7 +59,7 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    
+
     while True:
   #     try:
            city = input("Enter the name of the city to analyze: ").lower()
@@ -67,10 +68,10 @@ def get_filters():
 #       except ValueError:
              print( "Error: Invalid input.")
 
-    
 
 
-    
+
+
 
     # TO DO: get user input for month (all, january, february, ... , june)
     while True:
@@ -134,7 +135,7 @@ def load_data(city, month, day):
 
     return df
 
-  
+
 
 
 def time_stats(df):
@@ -143,7 +144,7 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
     df['Start Time'] = pd.to_datetime(df['Start Time'])
-    
+
 
     # TO DO: display the most common month
     df['month'] =df['Start Time'].dt.month
@@ -157,7 +158,7 @@ def time_stats(df):
 
 
     # TO DO: display the most common start hour
-   
+
     df['hour'] =df['Start Time'].dt.hour
     # find the most common hour (from 0 to 23)
     popular_hour = df['hour'].mode()[0]
@@ -173,8 +174,8 @@ def station_stats(df):
 
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
-   
-   
+
+
     # TO DO: display most commonly used start station
     most_common_start_station = df['Start Station'].mode()[0]
     print('Most Commonly Used Start Station:',most_common_start_station)
@@ -227,7 +228,7 @@ def user_stats(df):
 
     # TO DO: Display counts of user types
     print('Counts of user types',df['User Type'].value_counts())
-    
+
 
 
     # TO DO: Display counts of gender
@@ -247,12 +248,12 @@ def user_stats(df):
 
 def print_data(df):
     ''' This function displays the rows of data '''
-    
+
     start = 0
     end = 5
     df_length = len(df.index)
-    
-    while True:  
+
+    while True:
         answer= input('Would you like to see  the  data?').lower()
         if answer == 'yes':
             print("\nDisplaying only 5 rows of data.\n")
@@ -262,7 +263,7 @@ def print_data(df):
             start += 5
             end+= 5
         else:
-            break    
+            break
 
 def main():
     while True:
@@ -274,7 +275,7 @@ def main():
         trip_duration_stats(df)
         user_stats(df)
         print_data(df)
-        
+
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
